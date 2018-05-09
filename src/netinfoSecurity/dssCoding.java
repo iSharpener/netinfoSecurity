@@ -4,9 +4,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class vigenere {
+public class dssCoding {
+	/**
+	 * 	文件读取函数
+	 * @param file File
+	 * @return	result.toString().replaceAll("\n", "") String
+	 */
 	public static String readFile(File file) {  
         StringBuilder result =new StringBuilder();  
         try {  
@@ -23,14 +29,24 @@ public class vigenere {
         }     
         return result.toString().replaceAll("\n", "");  
     } 
-	
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		 File file =new File("test.txt");  
-		 if(!file.exists()) {
-			 file.createNewFile();
-		 }
-	     System.out.println(readFile(file));  
+	/**
+	 * 文件写入函数
+	 * @param file File
+	 * @param str String
+	 * @return String
+	 */
+	public static String saveFile(File file,String str) {
+		try {
+			FileWriter writer = new FileWriter(file);
+			writer.write(str);
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
-
+	public static void main(String[] args) {
+		
+	}
 }
